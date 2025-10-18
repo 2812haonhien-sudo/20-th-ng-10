@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chúc mừng 20/10</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6e6, #fff0f5);
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #d6336c;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chúc mừng Ngày Phụ nữ Việt Nam 20/10 🌸</h1>
+  <div>
+    <input type="text" id="name" placeholder="Nhập tên của bạn">
+    <br>
+    <input type="password" id="password" placeholder="Nhập mật khẩu">
+    <br>
+    <button onclick="checkPassword()">Gửi lời chúc</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const correctPassword = "2010";
+    const maxAttempts = 3;
+    let attempts = 0;
+
+    function checkPassword() {
+      const name = document.getElementById("name").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      if (password === correctPassword) {
+        message.innerHTML = `Chào ${name}, chúc bạn một ngày 20/10 thật rực rỡ và hạnh phúc! 💐`;
+      } else {
+        attempts++;
+        if (attempts < maxAttempts) {
+          message.innerHTML = `Sai mật khẩu! Bạn còn ${maxAttempts - attempts} lần thử.`;
+        } else {
+          message.innerHTML = `Bạn đã nhập sai quá 3 lần. Chương trình kết thúc 😢`;
+          document.querySelector("button").disabled = true;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
